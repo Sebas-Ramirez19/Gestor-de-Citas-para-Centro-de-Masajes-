@@ -1,8 +1,7 @@
 ﻿using System;
 
-public class Class1
+public class DoctorDto
 {
-	public Class1()
-	{
-	}
+    public string Nombre { get; set; } = "";
+    public int EspecialidadId { get; set; }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
 
-public class Class1
+public class PacienteDto
 {
-	public Class1()
-	{
-	}
+    public string Nombre { get; set; } = "";
 }

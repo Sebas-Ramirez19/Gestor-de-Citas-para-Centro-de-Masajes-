@@ -1,8 +1,7 @@
 ﻿using System;
 
-public class Class1
+public class CitaDto
 {
-	public Class1()
-	{
-	}
+    public DateTime Fecha { get; set; }
+    public int PacienteId { get; set; }
 }
