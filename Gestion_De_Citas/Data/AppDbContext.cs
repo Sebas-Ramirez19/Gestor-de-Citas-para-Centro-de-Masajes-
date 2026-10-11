@@ -1,4 +1,5 @@
 ﻿using System;
+using Gestion_De_Citas.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class AppDbContext : DbContext
