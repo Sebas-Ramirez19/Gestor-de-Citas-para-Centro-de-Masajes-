@@ -2,7 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Gestion_De_Citas.Models;
 
-namespace Gestion_De_Citas
+namespace API
+
 {
 
 
