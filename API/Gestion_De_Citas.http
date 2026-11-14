@@ -1,6 +1,0 @@
-@Gestion_De_Citas_HostAddress = http://localhost:5231
-
-GET {{Gestion_De_Citas_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
