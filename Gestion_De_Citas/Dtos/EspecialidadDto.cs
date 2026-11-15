@@ -2,7 +2,7 @@
 
 
 
-public class EspecialidadDto
+public class EspecialIdadDto
 {
     public string Nombre { get; set; } = "";
 }

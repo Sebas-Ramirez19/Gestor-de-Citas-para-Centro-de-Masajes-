@@ -24,10 +24,10 @@ namespace Gestion_De_Citas
         }
 
         // GET: api/Cita/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Cita>> GetCita(int id)
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<Cita>> GetCita(int Id)
         {
-            var cita = await _context.Citas.FindAsync(id);
+            var cita = await _context.Citas.FindAsync(Id);
 
             if (cita == null)
             {
@@ -38,11 +38,11 @@ namespace Gestion_De_Citas
         }
 
         // PUT: api/Cita/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCita(int id, Cita cita)
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkId=2123754
+        [HttpPut("{Id}")]
+        public async Task<IActionResult> PutCita(int Id, Cita cita)
         {
-            if (id != cita.Id)
+            if (Id != cita.Id)
             {
                 return BadRequest();
             }
@@ -55,7 +55,7 @@ namespace Gestion_De_Citas
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CitaExists(id))
+                if (!CitaExists(Id))
                 {
                     return NotFound();
                 }
@@ -69,21 +69,21 @@ namespace Gestion_De_Citas
         }
 
         // POST: api/Cita
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkId=2123754
         [HttpPost]
         public async Task<ActionResult<Cita>> PostCita(Cita cita)
         {
             _context.Citas.Add(cita);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCita", new { id = cita.Id }, cita);
+            return CreatedAtAction("GetCita", new { Id = cita.Id }, cita);
         }
 
         // DELETE: api/Cita/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCita(int id)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> DeleteCita(int Id)
         {
-            var cita = await _context.Citas.FindAsync(id);
+            var cita = await _context.Citas.FindAsync(Id);
             if (cita == null)
             {
                 return NotFound();
@@ -95,9 +95,9 @@ namespace Gestion_De_Citas
             return NoContent();
         }
 
-        private bool CitaExists(int id)
+        private bool CitaExists(int Id)
         {
-            return _context.Citas.Any(e => e.Id == id);
+            return _context.Citas.Any(e => e.Id == Id);
         }
     }
 }
