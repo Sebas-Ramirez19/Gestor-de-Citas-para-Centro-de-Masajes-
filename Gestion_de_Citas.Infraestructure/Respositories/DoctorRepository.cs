@@ -30,14 +30,14 @@ namespace Gestion_de_Citas.Infraestructure.Repositories
 
                 .Include(a => a.Nombre)
 
-                .Include(a => a.Especialidad)
+                .Include(a => a.EspecialIdad)
 
                 .ToListAsync();
 
         }
 
 
-        public async Task<ModeloDoctor> GetByIdAsync(int id)
+        public async Task<ModeloDoctor> GetByIdAsync(int Id)
 
         {
 
@@ -45,9 +45,9 @@ namespace Gestion_de_Citas.Infraestructure.Repositories
 
                 .Include(a => a.Nombre)
 
-                .Include(a => a.Especialidad)
+                .Include(a => a.EspecialIdad)
 
-                .FirstOrDefaultAsync(a => a.id == id);
+                .FirstOrDefaultAsync(a => a.Id == Id);
 
         }
 
@@ -76,11 +76,11 @@ namespace Gestion_de_Citas.Infraestructure.Repositories
         }
 
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(int Id)
 
         {
 
-            var doctor = await _context.Doctor.FindAsync(id);
+            var doctor = await _context.Doctor.FindAsync(Id);
 
 
             if (doctor != null)

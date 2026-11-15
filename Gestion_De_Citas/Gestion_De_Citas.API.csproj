@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Gestion_De_Citas.Application\Gestion_De_Citas.Application.csproj" />
     <ProjectReference Include="..\Gestion_de_Citas.domain\Gestion_de_Citas.domain.csproj" />
     <ProjectReference Include="..\Gestion_de_Citas.Infraestructure\Gestion_de_Citas.Infraestructure.csproj" />
   </ItemGroup>

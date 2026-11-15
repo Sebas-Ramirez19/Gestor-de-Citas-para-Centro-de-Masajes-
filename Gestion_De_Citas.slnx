@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Gestion_De_Citas.Application/Gestion_De_Citas.Application.csproj" Id="6788f0d9-95c8-4e59-8293-2cfa7f50faf1" />
   <Project Path="Gestion_de_Citas.domain/Gestion_de_Citas.domain.csproj" Id="704f0494-22f5-484d-8a0e-a80d7d34b89d" />
   <Project Path="Gestion_de_Citas.Infraestructure/Gestion_de_Citas.Infraestructure.csproj" Id="9251113c-809e-4cd9-80ec-07c048a67f8d" />
   <Project Path="Gestion_De_Citas/Gestion_De_Citas.API.csproj" />

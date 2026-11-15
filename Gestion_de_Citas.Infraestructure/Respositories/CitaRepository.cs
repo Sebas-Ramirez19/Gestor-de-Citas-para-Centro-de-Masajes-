@@ -35,7 +35,7 @@ namespace Gestion_de_Citas.Infraestructure.Repositories
         }
 
 
-        public async Task<ModeloCita> GetByIdAsync(int id)
+        public async Task<ModeloCita> GetByIdAsync(int Id)
 
         {
 
@@ -43,7 +43,7 @@ namespace Gestion_de_Citas.Infraestructure.Repositories
 
                 .Include(c => c.Pacientes)
 
-                .FirstOrDefaultAsync(c => c.id == id);
+                .FirstOrDefaultAsync(c => c.Id == Id);
             
         }
 
@@ -72,11 +72,11 @@ namespace Gestion_de_Citas.Infraestructure.Repositories
         }
 
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(int Id)
 
         {
 
-            var cita = await _context.Cita.FindAsync(id);
+            var cita = await _context.Cita.FindAsync(Id);
 
 
             if (cita != null)

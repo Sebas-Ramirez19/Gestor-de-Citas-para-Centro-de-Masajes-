@@ -1,21 +1,22 @@
 ﻿using Gestion_de_Citas.domain;
 
+
 namespace Gestion_de_Citas.Infrastructure.Interfaces
 
 {
 
-    public interface IEspecialidadRepository
+    public interface IEspecialIdadRepository
     {
 
-        Task<IEnumerable<ModeloEspecialidad>> GetAllAsync();
+        Task<IEnumerable<ModeloEspecialIdad>> GetAllAsync();
 
-        Task<ModeloEspecialidad ?> GetByIdAsync(int id);
+        Task<ModeloEspecialIdad ?> GetByIdAsync(int Id);
 
-        Task<ModeloEspecialidad> AddAsync(ModeloEspecialidad especialidad);
+        Task<ModeloEspecialIdad> AddAsync(ModeloEspecialIdad especialIdad);
 
-        Task UpdateAsync(ModeloEspecialidad especialidad);
+        Task UpdateAsync(ModeloEspecialIdad especialIdad);
 
-        Task DeleteAsync(int id);
+        Task DeleteAsync(int Id);
 
     }
 

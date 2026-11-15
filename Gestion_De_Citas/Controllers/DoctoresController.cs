@@ -24,10 +24,10 @@ namespace Gestion_De_Citas
         }
 
         // GET: api/Doctores/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Doctor>> GetDoctor(int id)
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<Doctor>> GetDoctor(int Id)
         {
-            var doctor = await _context.Doctores.FindAsync(id);
+            var doctor = await _context.Doctores.FindAsync(Id);
 
             if (doctor == null)
             {
@@ -39,11 +39,11 @@ namespace Gestion_De_Citas
         
 
         // PUT: api/Doctores/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutDoctor(int id, Doctor doctor)
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkId=2123754
+        [HttpPut("{Id}")]
+        public async Task<IActionResult> PutDoctor(int Id, Doctor doctor)
         {
-            if (id != doctor.Id)
+            if (Id != doctor.Id)
             {
                 return BadRequest();
             }
@@ -56,7 +56,7 @@ namespace Gestion_De_Citas
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DoctorExists(id))
+                if (!DoctorExists(Id))
                 {
                     return NotFound();
                 }
@@ -70,21 +70,21 @@ namespace Gestion_De_Citas
         }
 
         // POST: api/Cita
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkId=2123754
         [HttpPost]
         public async Task<ActionResult<Doctor>> PostDoctor(Doctor doctor)
         {
             _context.Doctores.Add(doctor);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDoctor", new { id = doctor.Id }, doctor);
+            return CreatedAtAction("GetDoctor", new { Id = doctor.Id }, doctor);
         }
 
         // DELETE: api/Doctores/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteDoctor(int id)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> DeleteDoctor(int Id)
         {
-            var doctor = await _context.Doctores.FindAsync(id);
+            var doctor = await _context.Doctores.FindAsync(Id);
             if (doctor == null)
             {
                 return NotFound();
@@ -96,9 +96,9 @@ namespace Gestion_De_Citas
             return NoContent();
         }
 
-        private bool DoctorExists(int id)
+        private bool DoctorExists(int Id)
         {
-            return _context.Doctores.Any(e => e.Id == id);
+            return _context.Doctores.Any(e => e.Id == Id);
         }
     }
 }

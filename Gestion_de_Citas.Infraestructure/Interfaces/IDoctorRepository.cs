@@ -9,13 +9,13 @@ namespace Gestion_de_Citas.Infrastructure.Interfaces
 
         Task<IEnumerable<ModeloDoctor>> GetAllAsync();
 
-        Task<ModeloDoctor?> GetByIdAsync(int id);
+        Task<ModeloDoctor?> GetByIdAsync(int Id);
 
         Task<ModeloDoctor> AddAsync(ModeloDoctor doctor);
 
         Task UpdateAsync(ModeloDoctor doctor);
 
-        Task DeleteAsync(int id);
+        Task DeleteAsync(int Id);
 
     }
 

@@ -1,8 +1,6 @@
-﻿using System;
-
-public class ModeloDoctor
+﻿public class ModeloDoctor
 {
+    public int Id { get; set; }
     public string Nombre { get; set; } = "";
-    public int Especialidad { get; set; }
-    public int id { get; set; }
+    public int EspecialIdad { get; set; }
 }

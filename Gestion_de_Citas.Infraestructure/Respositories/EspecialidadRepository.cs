@@ -3,17 +3,19 @@ using Microsoft.EntityFrameworkCore;
 using Gestion_de_Citas.domain;
 using Gestion_de_Citas.Infrastructure.Interfaces;
 
+
+
 namespace Gestion_de_Citas.Infraestructure.Repositories
 
 {
 
-    public class EspecialidadRepository : IEspecialidadRepository
+    public class EspecialIdadRepository : IEspecialIdadRepository
     {
 
         private readonly ApplicationDbContext _context;
 
 
-        public EspecialidadRepository(ApplicationDbContext context)
+        public EspecialIdadRepository(ApplicationDbContext context)
 
         {
 
@@ -21,88 +23,37 @@ namespace Gestion_de_Citas.Infraestructure.Repositories
 
         }
 
-        public async Task AddAsync(ModeloEspecialidad especialidad)
+        public async Task<IEnumerable<ModeloEspecialIdad>> GetAllAsync()
         {
-            await _context.Especialidad.AddAsync(especialidad);
+            return await _context.EspecialIdad.ToListAsync();
+        }
+
+        public async Task<ModeloEspecialIdad?> GetByIdAsync(int Id)
+        {
+            return await _context.EspecialIdad.FirstOrDefaultAsync(a => a.Id == Id);
+        }
+
+        public async Task<ModeloEspecialIdad> AddAsync(ModeloEspecialIdad especialIdad)
+        {
+            _context.EspecialIdad.Add(especialIdad);
+            await _context.SaveChangesAsync();
+            return especialIdad;
+        }
+
+        public async Task UpdateAsync(ModeloEspecialIdad especialIdad)
+        {
+            _context.EspecialIdad.Update(especialIdad);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(ModeloEspecialidad especialidad)
+        public async Task DeleteAsync(int Id)
         {
-            _context.Especialidad.Update(especialidad);
-            await _context.SaveChangesAsync();
-        }
-
-
-        public async Task<IEnumerable<ModeloEspecialidad>> GetAllAsync()
-
-        {
-
-            return await _context.Especialidad
-
-                .Include(a => a.Nombre)
-
-                .ToListAsync();
-
-        }
-
-
-        public async Task<ModeloEspecialidad> GetByIdAsync(int id)
-
-        {
-
-            return await _context.Especialidad
-
-                .Include(a => a.Nombre)
-
-
-                .FirstOrDefaultAsync(a => a.id == id);
-
-        }
-
-
-        public async Task<ModeloDoctor> AddAsync(ModeloDoctor doctor)
-
-        {
-
-            _context.Doctor.Add(doctor);
-
-            await _context.SaveChangesAsync();
-
-            return doctor;
-
-        }
-
-
-        public async Task UpdateAsync(ModeloDoctor doctor)
-
-        {
-
-            _context.Doctor.Update(doctor);
-
-            await _context.SaveChangesAsync();
-
-        }
-
-
-        public async Task DeleteAsync(int id)
-
-        {
-
-            var doctor = await _context.Doctor.FindAsync(id);
-
-
-            if (doctor != null)
+            var especialIdad = await _context.EspecialIdad.FindAsync(Id);
+            if (especialIdad != null)
             {
-
-                _context.Doctor.Remove(doctor);
-
+                _context.EspecialIdad.Remove(especialIdad);
                 await _context.SaveChangesAsync();
-
             }
-
         }
-
     }
-
 }

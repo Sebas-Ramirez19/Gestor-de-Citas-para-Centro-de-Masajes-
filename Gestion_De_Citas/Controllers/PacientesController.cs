@@ -24,10 +24,10 @@ namespace Gestion_De_Citas
         }
 
         // GET: api/Pacientes/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Paciente>> GetPaciente(int id)
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<Paciente>> GetPaciente(int Id)
         {
-            var paciente = await _context.Pacientes.FindAsync(id);
+            var paciente = await _context.Pacientes.FindAsync(Id);
 
             if (paciente == null)
             {
@@ -39,11 +39,11 @@ namespace Gestion_De_Citas
 
 
         // PUT: api/Pacientes/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPaciente(int id, Paciente paciente)
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkId=2123754
+        [HttpPut("{Id}")]
+        public async Task<IActionResult> PutPaciente(int Id, Paciente paciente)
         {
-            if (id != paciente.Id)
+            if (Id != paciente.Id)
             {
                 return BadRequest();
             }
@@ -56,7 +56,7 @@ namespace Gestion_De_Citas
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PacienteExists (id))
+                if (!PacienteExists (Id))
                 {
                     return NotFound();
                 }
@@ -70,21 +70,21 @@ namespace Gestion_De_Citas
         }
 
         // POST: api/Cita
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkId=2123754
         [HttpPost]
         public async Task<ActionResult<Paciente>> PostPaciente(Paciente paciente)
         {
             _context.Pacientes.Add(paciente);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPaciente", new { id = paciente.Id }, paciente);
+            return CreatedAtAction("GetPaciente", new { Id = paciente.Id }, paciente);
         }
 
         // DELETE: api/Pacientes/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePaciente(int id)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> DeletePaciente(int Id)
         {
-            var paciente = await _context.Pacientes.FindAsync(id);
+            var paciente = await _context.Pacientes.FindAsync(Id);
             if (paciente == null)
             {
                 return NotFound();
@@ -96,9 +96,9 @@ namespace Gestion_De_Citas
             return NoContent();
         }
 
-        private bool PacienteExists(int id)
+        private bool PacienteExists(int Id)
         {
-            return _context.Pacientes.Any(e => e.Id == id);
+            return _context.Pacientes.Any(e => e.Id == Id);
         }
     }
 }

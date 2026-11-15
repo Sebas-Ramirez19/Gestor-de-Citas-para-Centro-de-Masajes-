@@ -9,13 +9,13 @@ namespace Gestion_de_Citas.Infrastructure.Interfaces
 
         Task<IEnumerable<ModeloCita>> GetAllAsync();
 
-        Task<ModeloCita?> GetByIdAsync(int id);
+        Task<ModeloCita?> GetByIdAsync(int Id);
 
         Task<ModeloCita> AddAsync(ModeloCita cita);
 
         Task UpdateAsync(ModeloCita cita);
 
-        Task DeleteAsync(int id);
+        Task DeleteAsync(int Id);
 
     }
 

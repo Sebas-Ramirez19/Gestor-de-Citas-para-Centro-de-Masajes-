@@ -22,48 +22,35 @@ namespace Gestion_de_Citas.Infraestructure.Context
 
         public DbSet<ModeloDoctor> Doctor { get; set; }
 
-        public DbSet<ModeloEspecialidad> Especialidad{ get; set; }
+        public DbSet<ModeloEspecialIdad> EspecialIdad{ get; set; }
 
         public DbSet<ModeloCita> Cita { get; set; }
 
         public DbSet<ModeloPaciente> Pacientes { get; set; }
 
 
-        protected override void OnModelCreating(
-
-            ModelBuilder modelBuilder)
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             base.OnModelCreating(modelBuilder);
 
-
             modelBuilder.Entity<ModeloDoctor>()
-
                 .Property(d => d.Nombre)
+                .HasMaxLength(100)
+                .IsRequired();
 
-                .HasPrecision(10, 2);
-
-
-            modelBuilder.Entity<ModeloEspecialidad>()
-
+            modelBuilder.Entity<ModeloEspecialIdad>()
                 .Property(e => e.Nombre)
-
-                .HasPrecision(10, 2);
-
+                .HasMaxLength(100)
+                .IsRequired();
 
             modelBuilder.Entity<ModeloPaciente>()
-
                 .Property(p => p.Nombre)
-
-                .HasPrecision(10, 2);
-
-
+                .HasMaxLength(100)
+                .IsRequired();
 
             modelBuilder.Entity<ModeloCita>()
                 .Property(c => c.Fecha)
-                .HasPrecision(10, 2);
-
+                .HasColumnType("datetime2(7)");
         }
 
     }

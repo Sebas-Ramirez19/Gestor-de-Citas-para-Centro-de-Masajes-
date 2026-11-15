@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class EntitieEspecialidad
+public class EntitieEspecialIdad
 {
     public int Id { get; set; }
     public string Nombre { get; set; } = "";

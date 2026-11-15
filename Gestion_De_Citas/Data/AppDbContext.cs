@@ -9,5 +9,5 @@ public class AppDbContext : DbContext
     public DbSet<Paciente> Pacientes { get; set; }
     public DbSet<Cita> Citas { get; set; }
     public DbSet<Doctor> Doctores { get; set; }
-    public DbSet<Especialidad> Especialidades { get; set; }
+    public DbSet<EspecialIdad> EspecialIdades { get; set; }
 }
