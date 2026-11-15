@@ -1,7 +1,0 @@
-﻿using System;
-
-public class EntitieEspecialIdad
-{
-    public int Id { get; set; }
-    public string Nombre { get; set; } = "";
-}
